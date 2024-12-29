@@ -128,6 +128,9 @@ export const resources = pgTable("resources", {
     .primaryKey()
     .$defaultFn(() => nanoid()),
   content: text("content").notNull(),
+  userId: uuid('userId')
+    .notNull()
+    .references(() => user.id),
 
   createdAt: timestamp("created_at")
     .notNull()
@@ -161,6 +164,9 @@ export const embeddings = pgTable(
     ),
     content: text('content').notNull(),
     embedding: vector('embedding', { dimensions: 1536 }).notNull(),
+    userId: uuid('userId')
+    .notNull()
+    .references(() => user.id),
   },
   table => ({
     embeddingIndex: index('embeddingIndex').using(

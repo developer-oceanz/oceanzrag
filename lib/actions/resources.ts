@@ -9,19 +9,26 @@ import { db } from '../db';
 import { generateEmbeddings } from '../ai/embedding';
 import { embeddings as embeddingsTable } from '../db/schema';
 
-export const createResource = async (input: NewResourceParams) => {
+
+export async function createResource({
+  content,
+  userId,
+}: {
+  content: string;
+  userId: string;
+}) {
   try {
-    const { content } = insertResourceSchema.parse(input);
 
     const [resource] = await db
       .insert(resources)
-      .values({ content })
+      .values({ content, userId })
       .returning();
 
     const embeddings = await generateEmbeddings(content);
     await db.insert(embeddingsTable).values(
       embeddings.map(embedding => ({
         resourceId: resource.id,
+        userId,
         ...embedding,
       })),
     );
@@ -31,4 +38,4 @@ export const createResource = async (input: NewResourceParams) => {
     if (e instanceof Error)
       return e.message.length > 0 ? e.message : 'Error, please try again.';
   }
-};
+}
