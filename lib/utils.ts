@@ -10,6 +10,8 @@ import { twMerge } from 'tailwind-merge';
 
 import type { Message as DBMessage, Document } from '@/lib/db/schema';
 
+import { customAlphabet } from "nanoid";
+
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -18,6 +20,8 @@ interface ApplicationError extends Error {
   info: string;
   status: number;
 }
+
+export const nanoid = customAlphabet("abcdefghijklmnopqrstuvwxyz0123456789");
 
 export const fetcher = async (url: string) => {
   const res = await fetch(url);

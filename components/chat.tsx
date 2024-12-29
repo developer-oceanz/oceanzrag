@@ -17,6 +17,51 @@ import { MultimodalInput } from './multimodal-input';
 import { Messages } from './messages';
 import { VisibilityType } from './visibility-selector';
 
+// Define the RightPane component
+const RightPane = () => {
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      const newFiles = Array.from(event.target.files);
+      setUploadedFiles([...uploadedFiles, ...newFiles]);
+
+      const formData = new FormData();
+      newFiles.forEach((file) => {
+        formData.append('file', file);
+      });
+
+      try {
+        await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        });
+      } catch (error) {
+        console.error('Upload failed:', error);
+      }
+    }
+  };
+
+  return (
+    <div className="right-pane p-4 bg-gray-100 border-l border-gray-300 rounded-lg shadow-md">
+      <h2 className="text-lg font-bold mb-4">Upload Files</h2>
+      <input
+        type="file"
+        multiple
+        onChange={handleFileUpload}
+        className="mb-4 p-2 border border-gray-300 rounded"
+      />
+      <ul className="list-disc pl-5">
+        {uploadedFiles.map((file, index) => (
+          <li key={index} className="mb-2">
+            {file.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 export function Chat({
   id,
   initialMessages,
@@ -79,7 +124,9 @@ export function Chat({
 
   return (
     <>
-      <div className="flex flex-col min-w-0 h-dvh bg-background">
+      <div className="flex h-screen">
+        {/* Left Pane */}
+        <div className="flex flex-col min-w-0 h-full bg-background flex-grow">
         <ChatHeader
           chatId={id}
           selectedModelId={selectedModelId}
@@ -116,6 +163,10 @@ export function Chat({
             />
           )}
         </form>
+        </div>
+
+        {/* Right Pane */}
+        <RightPane />
       </div>
 
       <AnimatePresence>

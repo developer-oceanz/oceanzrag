@@ -24,9 +24,10 @@ export const blocksPrompt = `
   Do not update document right after creating it. Wait for user feedback or request to update it.
   `;
 
-export const regularPrompt =
-  'You are a friendly assistant! Keep your responses concise and helpful.';
-
+export const regularPrompt = `You are a helpful assistant. Check your knowledge base before answering any questions.
+  Only respond to questions using information from tool calls.
+  if no relevant information is found in the tool calls, respond, "Sorry, I don't know."`;
+  
 export const systemPrompt = `${regularPrompt}\n\n${blocksPrompt}`;
 
 export const codePrompt = `
