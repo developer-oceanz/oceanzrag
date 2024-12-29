@@ -99,7 +99,7 @@ export async function POST(req: Request) {
                     question: z.string().describe('the users question'),
                 }),
                 execute: async ({ question }) => {
-                    return findRelevantContent(question);
+                    return findRelevantContent(question, userId);
                   },
             }),
             addResource: tool({

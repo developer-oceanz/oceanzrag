@@ -121,8 +121,6 @@ export const suggestion = pgTable(
 
 export type Suggestion = InferSelectModel<typeof suggestion>;
 
-
-
 export const resources = pgTable("resources", {
   id: varchar("id", { length: 191 })
     .primaryKey()
@@ -131,7 +129,6 @@ export const resources = pgTable("resources", {
   userId: uuid('userId')
     .notNull()
     .references(() => user.id),
-
   createdAt: timestamp("created_at")
     .notNull()
     .default(sql`now()`),
@@ -165,8 +162,8 @@ export const embeddings = pgTable(
     content: text('content').notNull(),
     embedding: vector('embedding', { dimensions: 1536 }).notNull(),
     userId: uuid('userId')
-    .notNull()
-    .references(() => user.id),
+      .notNull()
+      .references(() => user.id),
   },
   table => ({
     embeddingIndex: index('embeddingIndex').using(
