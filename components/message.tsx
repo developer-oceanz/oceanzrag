@@ -161,9 +161,7 @@ const PurePreviewMessage = ({
                           setBlock={setBlock}
                           isReadonly={isReadonly}
                         />
-                      ) : (
-                        <pre>{JSON.stringify(result, null, 2)}</pre>
-                      )}
+                      ) : null}
                     </div>
                   );
                 }
