@@ -13,6 +13,7 @@ import {
   SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
+  SidebarUploadArea,
   SidebarHeader,
   SidebarMenu,
   useSidebar,
@@ -61,7 +62,12 @@ export function AppSidebar({ user }: { user: User | undefined }) {
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <SidebarHistory user={user} />
+        <div className="flex-1 overflow-auto">
+          <SidebarHistory user={user} />
+        </div>
+        <div className='flex-none'>
+          <SidebarUploadArea></SidebarUploadArea>
+        </div>
       </SidebarContent>
       <SidebarFooter>{user && <SidebarUserNav user={user} />}</SidebarFooter>
     </Sidebar>

@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import { useState } from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { VariantProps, cva } from 'class-variance-authority';
 import { PanelLeft } from 'lucide-react';
@@ -493,6 +494,51 @@ const SidebarGroupContent = React.forwardRef<
 ));
 SidebarGroupContent.displayName = 'SidebarGroupContent';
 
+// Define the RightPane component
+const SidebarUploadArea = () => {
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files) {
+      const newFiles = Array.from(event.target.files);
+      setUploadedFiles([...uploadedFiles, ...newFiles]);
+
+      const formData = new FormData();
+      newFiles.forEach((file) => {
+        formData.append('file', file);
+      });
+
+      try {
+        await fetch('/api/upload', {
+          method: 'POST',
+          body: formData,
+        });
+      } catch (error) {
+        console.error('Upload failed:', error);
+      }
+    }
+  };
+
+  return (
+    <div className="right-pane p-4 bg-gray-100 border-l border-gray-300 rounded-lg shadow-md">
+      <h2 className="text-lg font-bold mb-4">Upload Files</h2>
+      <input
+        type="file"
+        multiple
+        onChange={handleFileUpload}
+        className="mb-4 p-2 border border-gray-300 rounded"
+      />
+      <ul className="list-disc pl-5">
+        {uploadedFiles.map((file, index) => (
+          <li key={index} className="mb-2">
+            {file.name}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
 const SidebarMenu = React.forwardRef<
   HTMLUListElement,
   React.ComponentProps<'ul'>
@@ -750,6 +796,7 @@ export {
   SidebarGroup,
   SidebarGroupAction,
   SidebarGroupContent,
+  SidebarUploadArea,
   SidebarGroupLabel,
   SidebarHeader,
   SidebarInput,
