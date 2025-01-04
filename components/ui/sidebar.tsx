@@ -514,7 +514,7 @@ const SidebarUploadArea = () => {
           body: formData,
         });
       } catch (error) {
-        console.error('Upload failed:', error);
+        console.error('Upload failed: ', error);
       }
     }
   };
