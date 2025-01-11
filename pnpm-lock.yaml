@@ -128,6 +128,9 @@ importers:
       orderedmap:
         specifier: ^2.1.1
         version: 2.1.1
+      pdfreader:
+        specifier: ^3.0.6
+        version: 3.0.6
       postgres:
         specifier: ^3.4.4
         version: 3.4.5
@@ -3057,6 +3060,17 @@ packages:
   path-type@4.0.0:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
+
+  pdf2json@3.1.4:
+    resolution: {integrity: sha512-rS+VapXpXZr+5lUpHmRh3ugXdFXp24p1RyG24yP1DMpqP4t0mrYNGpLtpSbWD42PnQ59GIXofxF+yWb7M+3THg==}
+    engines: {node: '>=18.12.1', npm: '>=8.19.2'}
+    hasBin: true
+    bundledDependencies:
+      - '@xmldom/xmldom'
+
+  pdfreader@3.0.6:
+    resolution: {integrity: sha512-l1HqEYtoFTiVumYCMR9YO6EST/w4gfenfnKG7n7ENJNc1GOTzI8hjodvziWPHeoL6jsDli4QiS1v3ITtmNiadw==}
+    engines: {node: '>=14'}
 
   pg-int8@1.0.1:
     resolution: {integrity: sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw==}
@@ -6704,6 +6718,12 @@ snapshots:
       minipass: 7.1.2
 
   path-type@4.0.0: {}
+
+  pdf2json@3.1.4: {}
+
+  pdfreader@3.0.6:
+    dependencies:
+      pdf2json: 3.1.4
 
   pg-int8@1.0.1: {}
 

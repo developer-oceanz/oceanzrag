@@ -509,7 +509,7 @@ const SidebarUploadArea = () => {
       });
 
       try {
-        await fetch('/api/upload', {
+        await fetch('/api/files/upload', {
           method: 'POST',
           body: formData,
         });
@@ -520,13 +520,13 @@ const SidebarUploadArea = () => {
   };
 
   return (
-    <div className="right-pane p-4 bg-gray-100 border-l border-gray-300 rounded-lg shadow-md">
+    <div className="left-pane p-4 bg-gray-100 border-l border-gray-300 rounded-lg shadow-md">
       <h2 className="text-lg font-bold mb-4">Upload Files</h2>
       <input
         type="file"
         multiple
         onChange={handleFileUpload}
-        className="mb-4 p-2 border border-gray-300 rounded"
+        className="mb-4 p-1 border border-gray-300 rounded text-sm w-full"
       />
       <ul className="list-disc pl-5">
         {uploadedFiles.map((file, index) => (
