@@ -91,7 +91,7 @@ export async function POST(req: Request) {
         maxSteps: 5,
         system: `You are a helpful assistant. Check your knowledge base before answering any questions.
         Only respond to questions using information from tool calls.
-        if no relevant information is found in the tool calls, respond, "Sorry, I don't know."`,
+        if no relevant information is found in the tool calls, check the custom model."`,
         tools: {
             getInformation: tool({
                 description: `get information from your knowledge base to answer questions.`,
