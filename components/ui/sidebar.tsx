@@ -520,13 +520,13 @@ const SidebarUploadArea = () => {
   };
 
   return (
-    <div className="left-pane p-4 bg-gray-100 border-l border-gray-300 rounded-lg shadow-md">
+    <div className="left-pane p-4 bg-sidebar text-sidebar-foreground border-l border-sidebar-border rounded-lg shadow-md">
       <h2 className="text-lg font-bold mb-4">Upload Files</h2>
       <input
         type="file"
         multiple
         onChange={handleFileUpload}
-        className="mb-4 p-1 border border-gray-300 rounded text-sm w-full"
+        className="mb-4 p-1 border border-sidebar-border rounded text-sm w-full bg-background text-foreground"
       />
       <ul className="list-disc pl-5">
         {uploadedFiles.map((file, index) => (

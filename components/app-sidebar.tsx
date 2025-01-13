@@ -7,6 +7,7 @@ import { PlusIcon } from '@/components/icons';
 import { SidebarHistory } from '@/components/sidebar-history';
 import { SidebarUserNav } from '@/components/sidebar-user-nav';
 import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 import {
   Sidebar,
   SidebarContent,
@@ -65,6 +66,7 @@ export function AppSidebar({ user }: { user: User | undefined }) {
         <div className="flex-1 overflow-auto">
           <SidebarHistory user={user} />
         </div>
+        <Separator></Separator>
         <div className='flex-none'>
           <SidebarUploadArea></SidebarUploadArea>
         </div>
