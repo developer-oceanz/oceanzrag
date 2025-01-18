@@ -347,8 +347,13 @@ function PureSendButton({
 }
 
 const SendButton = memo(PureSendButton, (prevProps, nextProps) => {
-  if (prevProps.uploadQueue.length !== nextProps.uploadQueue.length)
-    return false;
-  if (!prevProps.input !== !nextProps.input) return false;
+  // Compare the lengths of uploadQueue
+  if (prevProps.uploadQueue.length !== nextProps.uploadQueue.length) return false;
+
+  // Compare the actual input values, not just their truthiness
+  if (prevProps.input !== nextProps.input) return false;
+
+  // Props are the same, no need to rerender
   return true;
 });
+
