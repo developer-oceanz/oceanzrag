@@ -7,6 +7,10 @@ import { DEFAULT_MODEL_NAME, models } from '@/lib/ai/models';
 import { getChatById, getMessagesByChatId } from '@/lib/db/queries';
 import { convertToUIMessages } from '@/lib/utils';
 
+export async function getStaticPaths() {
+  return { paths: [], fallback: 'blocking' }; // Use blocking fallback for SSR-like behavior
+}
+
 export default async function Page(props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
   const { id } = params;
