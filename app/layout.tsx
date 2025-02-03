@@ -4,9 +4,10 @@ import { Toaster } from 'sonner';
 import { ThemeProvider } from '@/components/theme-provider';
 
 import './globals.css';
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://testragchatbotvercel.vercel.app'),
+  metadataBase: new URL('https://oceanz.ai'),
   title: 'Oceanz RAG',
   description: 'Oceanz Generative AI Chatbot',
 };
