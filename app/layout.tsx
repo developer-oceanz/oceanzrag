@@ -8,7 +8,7 @@ import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://oceanz.ai'),
-  title: 'Oceanz RAG',
+  title: 'Oceanz',
   description: 'Oceanz Generative AI Chatbot',
 };
 
