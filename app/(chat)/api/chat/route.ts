@@ -28,6 +28,7 @@ import {
   sanitizeResponseMessages,
 } from '@/lib/utils';
 import { generateTitleFromUserMessage } from '../../actions';
+import { getWeather } from '@/lib/ai/tools/get-weather';
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30;
@@ -93,6 +94,7 @@ export async function POST(req: Request) {
         Only respond to questions using information from tool calls.
         if no relevant information is found in the tool calls, check the custom model."`,
         tools: {
+            getWeather,
             getInformation: tool({
                 description: `get information from your knowledge base to answer questions.`,
                 parameters: z.object({
