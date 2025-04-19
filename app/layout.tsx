@@ -52,6 +52,21 @@ export default async function RootLayout({
     >
       <head>
         <link rel="icon" href="/favicon.ico" />
+        {/* Add Google Analytics script */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-7V3LXL40GD"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-7V3LXL40GD');
+            `,
+          }}
+          />
         <script
           dangerouslySetInnerHTML={{
             __html: THEME_COLOR_SCRIPT,
