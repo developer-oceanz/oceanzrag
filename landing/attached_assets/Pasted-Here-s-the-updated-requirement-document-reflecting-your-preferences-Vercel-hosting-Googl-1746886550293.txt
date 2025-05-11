@@ -1,0 +1,159 @@
+Here's the **updated requirement document** reflecting your preferences: **Vercel hosting**, **Google Analytics**, **not open-source**, and **no public GitHub repo**.
+
+---
+
+## ✅ Project: Minimalistic Landing Page for GenAI Startup (Agentic AI / Multi-Agent Systems)
+
+### 🧭 Objective
+
+Design and develop a **minimalistic**, **high-impact landing page** for a GenAI startup focused on **Agentic AI** and **Multi-Agent Frameworks**. The page should clearly communicate the startup’s vision and attract interest from potential customers, technical collaborators, and early-stage investors.
+
+---
+
+## 🔍 Target Audience
+
+* Enterprise AI/ML Teams
+* Innovation leads (CTOs, Heads of Automation)
+* Researchers in Autonomous AI
+* AI-first Investors
+
+---
+
+## 🎯 Core Messaging
+
+The startup is building the next layer of **autonomous agent infrastructure** using a **proprietary multi-agent coordination engine** for:
+
+* **Complex AI task delegation**
+* **Multi-agent collaboration**
+* **Real-world system integration**
+
+**Brand Tone**:
+Minimalist · Advanced · Confidential · Modular · Visionary
+
+---
+
+## 🧱 Functional Requirements
+
+### 1. **Header**
+
+* **Logo** (top-left; clean wordmark or subtle glyph)
+* **Navigation** (right-aligned):
+
+  * Technology
+  * Use Cases
+  * Blog (if available)
+  * Contact
+* **CTA Button**: “Request Access” (distinct color)
+
+### 2. **Hero Section**
+
+* **Tagline**:
+  *"Autonomous Agents. Coordinated Intelligence."*
+
+* **Subtext**:
+  *A next-gen framework for orchestrating intelligent agents to solve real-world problems.*
+
+* **CTA**: “Request Beta Access” (modal form or separate route)
+
+* Optionally: Abstract animation or demo clip (subtle, auto-loop, <10s)
+
+---
+
+### 3. **Technology Overview**
+
+* Key capabilities (grid or horizontal scroll):
+
+  * Agent-to-agent communication
+  * Long-term memory and planning modules
+  * Modular architecture with plug-and-play agents
+  * Interfaces for external APIs and private data
+
+* Short visual (optional): diagram showing coordination loop (e.g., planner → tool-user → executor → feedback)
+
+---
+
+### 4. **Use Cases**
+
+Three brief panels:
+
+* **Enterprise Task Automation**
+* **Intelligent Ops (Security, DevOps)**
+* **Autonomous Research Agents**
+  Each with:
+* Title
+* One-line description
+* “Learn more” → contact or coming-soon modal
+
+---
+
+### 5. **Private Beta Access**
+
+* Short section prompting visitors to **request early access**
+* Embedded form (Name, Email, Company, Use Case)
+* Privacy note (e.g., “We will not share your email”)
+
+---
+
+### 6. **About / Vision**
+
+* Concise statement about founding vision
+* (Optional) Line about founder background:
+  *“Founded by engineers and researchers from \[Company/University if appropriate]”*
+
+---
+
+### 7. **Footer**
+
+* Links:
+
+  * Privacy Policy
+  * Terms of Service
+  * Contact
+  * Icons: LinkedIn · Twitter · Email
+* Optional newsletter sign-up
+
+---
+
+## 🎨 Design Guidelines
+
+### Aesthetic
+
+* **Clean, minimalist** layout (ample white space)
+* Monochrome or soft-accent palette
+* Smooth micro-animations (on CTA hover, transitions)
+* Fonts: Inter, Satoshi, or Helvetica Neue
+* Avoid heavy illustrations or stock imagery
+
+### Responsive
+
+* Mobile-first
+* Performance optimized (lazy-loaded assets, no layout shift)
+
+---
+
+## ⚙️ Technical Stack
+
+| Component   | Technology                                  |
+| ----------- | ------------------------------------------- |
+| Frontend    | **Next.js**                                 |
+| Styling     | **Tailwind CSS**                            |
+| Forms       | **Formspree** or custom handler (API route) |
+| Analytics   | **Google Analytics 4**                      |
+| Hosting     | **Vercel**                                  |
+| Deployment  | Auto-deploy from private repo or local      |
+| Repo        | **No public GitHub repo**                   |
+| Open Source | **Not open source** (proprietary IP)        |
+
+---
+
+## 📦 Deliverables
+
+1. Fully responsive landing page deployed to Vercel
+2. Integrated Google Analytics
+3. Working access request form (with email notifications or Airtable/DB hook)
+4. Clean, maintainable codebase (private repo or zip archive)
+5. Optional: Favicon, metadata, SEO basics, Open Graph tags
+
+---
+
+Would you like me to provide a coded version of this in Next.js + Tailwind, or a Figma-style mockup first?
