@@ -521,7 +521,7 @@ const SidebarUploadArea = () => {
 
   return (
     <div className="left-pane p-4 bg-sidebar text-sidebar-foreground border-l border-sidebar-border rounded-lg shadow-md">
-      <h2 className="text-lg font-bold mb-4">Upload Files</h2>
+      <h2 className="text-lg font-bold mb-4">Update Knowledge Base</h2>
       <input
         type="file"
         multiple
