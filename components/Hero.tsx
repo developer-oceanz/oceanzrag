@@ -37,9 +37,6 @@ export default function Hero() {
               >
                 Try Demo
               </Button>
-              <Button size="lg" variant="outline">
-                Learn More
-              </Button>
             </div>
           </div>
           <div className="w-full md:w-6/12 px-4 mt-12 md:mt-0">
