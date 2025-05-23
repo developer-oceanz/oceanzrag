@@ -257,7 +257,7 @@ const Sidebar = React.forwardRef<
         >
           <div
             data-sidebar="sidebar"
-            className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow"
+            className="flex h-full w-full flex-col bg-sidebar border-r border-border group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow"
           >
             {children}
           </div>
@@ -520,17 +520,26 @@ const SidebarUploadArea = () => {
   };
 
   return (
-    <div className="left-pane p-4 bg-sidebar text-sidebar-foreground border-l border-sidebar-border rounded-lg shadow-md">
-      <h2 className="text-lg font-bold mb-4">Update Knowledge Base</h2>
-      <input
-        type="file"
-        multiple
-        onChange={handleFileUpload}
-        className="mb-4 p-1 border border-sidebar-border rounded text-sm w-full bg-background text-foreground"
-      />
-      <ul className="list-disc pl-5">
+    <div className="left-pane p-6 bg-sidebar text-sidebar-foreground border-l border-sidebar-border rounded-r-lg shadow-sm">
+      <h2 className="text-lg font-semibold mb-4 text-foreground">Update Knowledge Base</h2>
+      <div className="mb-4 relative">
+        <input
+          type="file"
+          multiple
+          onChange={handleFileUpload}
+          className="block w-full text-sm text-foreground/70
+            file:mr-4 file:py-2 file:px-4
+            file:rounded-md file:border-0
+            file:text-sm file:font-medium
+            file:bg-primary file:text-primary-foreground
+            hover:file:bg-primary/90
+            cursor-pointer
+            focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2"
+        />
+      </div>
+      <ul className="list-disc pl-5 space-y-1">
         {uploadedFiles.map((file, index) => (
-          <li key={index} className="mb-2">
+          <li key={index} className="text-sm text-muted-foreground">
             {file.name}
           </li>
         ))}
